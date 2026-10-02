@@ -277,6 +277,165 @@
       opacity: .76;
     }
 
+
+    .beta-form-section {
+      padding: 0 0 110px;
+    }
+
+    .form-card {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(17,40,82,.28), rgba(64,30,84,.14)),
+        var(--panel-strong);
+      box-shadow: 0 30px 90px rgba(0,0,0,.24);
+    }
+
+    .form-kicker {
+      margin: 0 0 7px;
+      color: var(--cyan);
+      font-size: .77rem;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .form-card h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.06;
+      letter-spacing: -.045em;
+    }
+
+    .form-intro {
+      max-width: 690px;
+      margin: 14px 0 30px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .beta-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label,
+    .check-label {
+      color: #eaf0fb;
+      font-size: .93rem;
+      font-weight: 750;
+    }
+
+    .field .optional {
+      color: #78869c;
+      font-weight: 550;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 14px;
+      outline: none;
+      background: rgba(255,255,255,.045);
+      color: var(--text);
+      font: inherit;
+      padding: 14px 15px;
+      transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .field select option {
+      color: #111827;
+      background: white;
+    }
+
+    .field textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #6f7d92;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(73,223,255,.58);
+      box-shadow: 0 0 0 3px rgba(73,223,255,.10);
+      background: rgba(255,255,255,.06);
+    }
+
+    .checks {
+      grid-column: 1 / -1;
+      display: grid;
+      gap: 12px;
+      margin-top: 2px;
+    }
+
+    .check-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      color: #cbd5e5;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .check-label input {
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      accent-color: var(--cyan);
+      flex: 0 0 auto;
+    }
+
+    .form-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .submit-button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .form-note {
+      margin: 0;
+      color: #7f8ca1;
+      font-size: .82rem;
+      line-height: 1.45;
+      flex: 1 1 320px;
+    }
+
+    .honeypot {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
     footer {
       position: relative;
       z-index: 1;
@@ -315,6 +474,8 @@
         margin: 0 auto;
       }
       .actions { justify-content: center; }
+      .beta-form { grid-template-columns: 1fr; }
+      .field.full, .checks, .form-actions { grid-column: 1; }
       .button { width: 100%; }
       .footer-row { justify-content: center; text-align: center; }
     }
@@ -330,7 +491,7 @@
       </a>
 
       <a class="mini-cta"
-         href="mailto:beta@nowwhat.it.com?subject=Now%20What%3F%20Beta%20Tester">
+         href="#beta-form">
         Beta testing
       </a>
     </div>
@@ -370,7 +531,7 @@
 
             <div class="actions">
               <a class="button primary"
-                 href="mailto:beta@nowwhat.it.com?subject=Now%20What%3F%20Beta%20Tester&body=Hi%20Now%20What%3F%2C%0A%0AI%27m%20interested%20in%20becoming%20an%20Android%20beta%20tester.%0A">
+                 href="#beta-form">
                 Become a Beta Tester
               </a>
 
@@ -382,6 +543,101 @@
 
             <p class="micro">No app download is being offered from this page yet.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="beta-form-section" id="beta-form">
+      <div class="wrap">
+        <div class="form-card">
+          <div class="form-kicker">Android beta application</div>
+          <h2>Want in?</h2>
+          <p class="form-intro">
+            Tell me a little about you and the Android phone you'll use.
+            This takes about a minute.
+          </p>
+
+          <form class="beta-form"
+                action="https://formsubmit.co/beta@nowwhat.it.com"
+                method="POST">
+            <input type="hidden" name="_subject" value="New Now What? Android beta tester application">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://nowwhat.it.com/thanks.html">
+            <input type="hidden" name="_autoresponse"
+                   value="Thanks for volunteering to test Now What? Your beta application was received. If you're a fit for this round of testing, you'll hear from Now What? with next steps.">
+            <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+            <div class="field">
+              <label for="full-name">Name</label>
+              <input id="full-name" name="Name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="device">Android device</label>
+              <input id="device" name="Android device" type="text"
+                     placeholder="e.g. Pixel 10, Galaxy S25+" required>
+            </div>
+
+            <div class="field">
+              <label for="android-version">Android version <span class="optional">(if you know it)</span></label>
+              <input id="android-version" name="Android version" type="text"
+                     placeholder="e.g. Android 16">
+            </div>
+
+            <div class="field">
+              <label for="frequency">How often could you realistically test?</label>
+              <select id="frequency" name="Testing frequency" required>
+                <option value="" selected disabled>Choose one</option>
+                <option>A few times a week</option>
+                <option>About once a week</option>
+                <option>A few times a month</option>
+                <option>Occasionally</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="heard">How did you hear about Now What? <span class="optional">(optional)</span></label>
+              <input id="heard" name="How they heard about Now What?" type="text"
+                     placeholder="Facebook, friend, etc.">
+            </div>
+
+            <div class="field full">
+              <label for="use-case">What kinds of tech problems would you use Now What? for?</label>
+              <textarea id="use-case" name="What they would use Now What? for"
+                        placeholder="A sentence or two is plenty." required></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="notes">Anything else you'd like me to know? <span class="optional">(optional)</span></label>
+              <textarea id="notes" name="Additional notes"
+                        placeholder="Questions, accessibility needs, testing experience, or anything else."></textarea>
+            </div>
+
+            <div class="checks">
+              <label class="check-label">
+                <input type="checkbox" name="Willing to actively test and send feedback" value="Yes" required>
+                <span>I'm willing to actively use the beta and tell you when something works—or doesn't.</span>
+              </label>
+
+              <label class="check-label">
+                <input type="checkbox" name="Willing to share screenshots when helpful" value="Yes" required>
+                <span>I can share screenshots when helpful, with private information removed first.</span>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="button primary submit-button" type="submit">Apply to Beta Test</button>
+              <p class="form-note">
+                Your answers are used only to evaluate and contact you about the Now What? beta.
+                Please don't include passwords, account numbers, or other sensitive information.
+              </p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
