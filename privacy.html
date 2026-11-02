@@ -67,7 +67,8 @@
   <div class="card">
     <h3>OpenAI</h3>
     <p>Your submitted goal, screenshots, and relevant before/after images may be sent to the OpenAI API to generate and verify screenshot-guided instructions. OpenAI states that API data is not used to train its models unless the customer explicitly opts in.</p>
-    <p>At the time of this policy, some Now What? Responses API calls use OpenAI's default response-storage behavior. OpenAI documents that response objects are retained for 30 days by default. Canais is actively working to minimize this retention where compatible with the app's screenshot-guidance workflow.</p>
+    <p>Now What? configures screenshot-bearing OpenAI Responses API requests with <code>store:false</code>, which disables normal Responses application-state storage for those requests. OpenAI may nevertheless retain customer content in abuse-monitoring logs for up to 30 days by default unless different approved retention controls apply to the API project.</p>
+    <p>A screenshot-free setup request used by the app's visual target-location protocol may be stored temporarily so its response identifier can be referenced by the immediately following request. That setup request is designed not to include the screenshot or the user's raw troubleshooting goal; the screenshot-bearing continuation uses <code>store:false</code>.</p>
 
     <h3>Cloudflare</h3>
     <p>Cloudflare provides the protected API gateway, authentication layer, Worker hosting, network security, and related request infrastructure used by the Android beta. Cloudflare necessarily processes network and authentication information required to operate those services.</p>
