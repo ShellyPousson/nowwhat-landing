@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Now What?</title>
+  <meta name="description" content="Privacy Policy for the Now What? screenshot-guided tech help app and website.">
+  <meta name="theme-color" content="#050b18">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    :root {
+      --bg:#020713; --panel:#081124; --text:#f4f7ff; --muted:#aab5c8;
+      --line:rgba(132,184,255,.19); --cyan:#49dfff; --violet:#a962ff; --max:860px;
+    }
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 20% 10%,rgba(76,141,255,.14),transparent 30rem),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+    a{color:var(--cyan)} .wrap{width:min(calc(100% - 36px),var(--max));margin:auto}
+    header{border-bottom:1px solid rgba(255,255,255,.08);padding:20px 0;background:rgba(2,7,19,.78)}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:800}.brand img{width:38px;height:38px;border-radius:10px}
+    main{padding:56px 0 84px}.eyebrow{color:var(--cyan);font-size:.78rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    h1{font-size:clamp(2.4rem,7vw,4.3rem);line-height:1.02;letter-spacing:-.055em;margin:.25rem 0 1rem}
+    .lede{font-size:1.1rem;color:var(--muted);max-width:720px}.card{margin:34px 0;padding:26px;border:1px solid var(--line);border-radius:22px;background:rgba(8,17,36,.72)}
+    h2{margin:2.2rem 0 .65rem;font-size:1.45rem}h3{margin:1.4rem 0 .4rem;font-size:1.05rem}p,li{color:#cad4e5}strong{color:#fff}ul{padding-left:1.35rem}
+    .plain{padding:18px 20px;border-left:3px solid var(--cyan);background:rgba(73,223,255,.055);border-radius:10px}.meta{font-size:.88rem;color:#8492a8}
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;color:#8996ab;font-size:.88rem}.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    @media(max-width:620px){main{padding-top:40px}.card{padding:20px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Now What? home"><img src="nowwhat-icon.webp" alt=""><span>Now What?</span></a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="eyebrow">Privacy</div>
+  <h1>Privacy Policy</h1>
+  <p class="lede">Now What? is screenshot-guided tech help from Canais LLC. This policy explains what information is processed when you use the Now What? app, website, or beta program, why it is used, where it goes, and the choices you have.</p>
+  <p class="meta">Effective and last updated: November 2, 2026</p>
+
+  <div class="plain"><strong>The short version:</strong> Now What? does not sell your personal information and does not run advertising inside the app. Screenshots and your written goal are processed only when you choose to submit them for guidance. The app currently has no Now What? user-profile database. Unfinished task data can be stored locally on your device so you can resume it.</div>
+
+  <h2>1. Who is responsible</h2>
+  <p>Now What? is a Canais LLC product. Questions or privacy requests can be sent to <a href="mailto:support@nowwhat.it.com">support@nowwhat.it.com</a>.</p>
+
+  <h2>2. Information the app processes</h2>
+
+  <h3>Screenshots and photos you choose to submit</h3>
+  <p>Now What? processes the screen images you explicitly capture or upload so it can understand what you are seeing, identify the next relevant control, compare before-and-after screens, and verify whether a step appears to have worked.</p>
+  <p><strong>Please remove or hide passwords, account numbers, private messages, medical information, financial information, or other sensitive material before submitting a screen whenever possible.</strong></p>
+
+  <h3>Your written task and feedback</h3>
+  <p>The app processes the goal you type, clarification answers, feedback about whether an instruction matched your screen, and workflow context needed to continue the task.</p>
+
+  <h3>Authentication information</h3>
+  <p>The Android beta uses Cloudflare Access for secure sign-in to the protected guidance service. Authentication tokens and client state are stored locally on your device using protected app storage. Now What? does not currently create a separate server-side Now What? user profile or account record in its own database. Signing out clears the locally stored authentication state.</p>
+
+  <h3>Technical and diagnostic information</h3>
+  <p>Now What? may process limited operational information such as request or trace identifiers, response status, timing, app/version information, workflow stage, error category, and cryptographic image hashes. Diagnostic code is designed not to log the readable contents of screenshots, goals, or model responses as diagnostic text.</p>
+
+  <h2>3. Local task storage on Android</h2>
+  <p>To recover from an interrupted session, the Android app can store an unfinished task locally on your device. That saved state can include your goal, screenshots, current instruction, before/after evidence, and task history.</p>
+  <p>After seven days, an unfinished checkpoint is no longer treated as a current resumable task, but local data may remain on the device until you use <strong>Start over</strong>, clear the app's storage, or uninstall the app. Completed tasks clear the active workflow checkpoint. Authentication tokens are kept separately from task screenshots and are cleared when you sign out.</p>
+
+  <h2>4. Information sent to service providers</h2>
+
+  <div class="card">
+    <h3>OpenAI</h3>
+    <p>Your submitted goal, screenshots, and relevant before/after images may be sent to the OpenAI API to generate and verify screenshot-guided instructions. OpenAI states that API data is not used to train its models unless the customer explicitly opts in.</p>
+    <p>At the time of this policy, some Now What? Responses API calls use OpenAI's default response-storage behavior. OpenAI documents that response objects are retained for 30 days by default. Canais is actively working to minimize this retention where compatible with the app's screenshot-guidance workflow.</p>
+
+    <h3>Cloudflare</h3>
+    <p>Cloudflare provides the protected API gateway, authentication layer, Worker hosting, network security, and related request infrastructure used by the Android beta. Cloudflare necessarily processes network and authentication information required to operate those services.</p>
+  </div>
+
+  <h2>5. Website and beta-test information</h2>
+  <p>The public website at <strong>nowwhat.it.com</strong> uses Cloudflare Web Analytics for aggregate site-traffic measurement. The beta application form asks for information such as your name, email address, Android device, testing availability, and optional notes. The form is submitted through FormSubmit so it can be delivered to the Now What? beta team.</p>
+  <p>Beta-application information is used only to evaluate testers, contact applicants, administer the beta, and respond to beta feedback. Please do not put passwords or sensitive account information in the beta form.</p>
+
+  <h2>6. Why information is used</h2>
+  <ul>
+    <li>Provide screenshot-guided technical help and one-step instructions.</li>
+    <li>Compare screens and verify whether a requested change appears to have occurred.</li>
+    <li>Authenticate access to the protected beta service.</li>
+    <li>Restore an interrupted task on the same device.</li>
+    <li>Diagnose failures, protect the service, and improve reliability.</li>
+    <li>Administer beta testing and respond to support requests.</li>
+  </ul>
+
+  <h2>7. Selling, advertising, and unrelated use</h2>
+  <p>Now What? does <strong>not</strong> sell personal information. The app does not contain third-party advertising and does not share submitted screenshots or task text for advertising or cross-context behavioral advertising.</p>
+
+  <h2>8. Retention and deletion</h2>
+  <p>Now What? does not currently maintain a server-side user-profile database. Local task data can be removed with <strong>Start over</strong>, by clearing app storage, or by uninstalling the app. Local sign-in state can be removed by signing out.</p>
+  <p>Information processed by service providers may be retained according to the provider's applicable service configuration and legal obligations. For deletion questions or requests concerning information under Canais's control, see <a href="/data-deletion.html">Data deletion</a> or email <a href="mailto:support@nowwhat.it.com">support@nowwhat.it.com</a>.</p>
+
+  <h2>9. Security</h2>
+  <p>Now What? uses HTTPS for network requests, Cloudflare Access for protected beta authentication, Android secure storage for authentication state, release-signing controls, and bounded/sanitized diagnostic logging. No security system can eliminate every risk, so users should still avoid submitting sensitive information that is not needed for the task.</p>
+
+  <h2>10. Your choices</h2>
+  <ul>
+    <li>You choose which screenshots are submitted. Native captures are shown for review before they are used.</li>
+    <li>You can discard a capture instead of submitting it.</li>
+    <li>You can use Start over to clear the active saved task.</li>
+    <li>You can sign out to clear the app's local authentication state.</li>
+    <li>You can clear Android app storage or uninstall Now What? to remove local app data from that device.</li>
+    <li>You can contact Canais about privacy or deletion at any time.</li>
+  </ul>
+
+  <h2>11. Changes to this policy</h2>
+  <p>If Now What? changes how it collects, uses, shares, or stores data, this policy will be updated before the change is represented in the Google Play disclosures. The effective date above will be updated when material revisions are published.</p>
+
+  <h2>12. Contact</h2>
+  <p><strong>Canais LLC — Now What?</strong><br>
+  Email: <a href="mailto:support@nowwhat.it.com">support@nowwhat.it.com</a><br>
+  Website: <a href="https://nowwhat.it.com/">https://nowwhat.it.com/</a></p>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Now What? · A Canais LLC product.</span>
+    <span><a href="/">Home</a> · <a href="/data-deletion.html">Data deletion</a> · <a href="mailto:support@nowwhat.it.com">Support</a></span>
+  </div>
+</footer>
+</body>
+</html>
