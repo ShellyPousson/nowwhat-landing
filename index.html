@@ -523,6 +523,10 @@
       flex: 1 1 260px;
       min-width: 0;
     }
+    .launch-signup .launch-name-field {
+      margin-bottom: 12px;
+      min-width: 0;
+    }
     .launch-signup label {
       display: block;
       margin-bottom: 8px;
@@ -530,7 +534,8 @@
       font-size: .93rem;
       font-weight: 750;
     }
-    .launch-signup input[type="email"] {
+    .launch-signup input[type="email"],
+    .launch-signup input[name="firstName"] {
       width: 100%;
       min-height: 52px;
       padding: 13px 15px;
@@ -540,8 +545,10 @@
       background: rgba(255,255,255,.045);
       font: inherit;
     }
-    .launch-signup input[type="email"]::placeholder { color: #92a0b6; }
+    .launch-signup input[type="email"]::placeholder,
+    .launch-signup input[name="firstName"]::placeholder { color: #92a0b6; }
     .launch-signup input[type="email"]:focus-visible,
+    .launch-signup input[name="firstName"]:focus-visible,
     .launch-signup button:focus-visible,
     .launch-signup a:focus-visible {
       outline: 3px solid var(--cyan);
@@ -631,9 +638,15 @@
         <div class="form-card launch-card">
           <p class="form-kicker">Launch notifications</p>
           <h2 id="launch-heading">Get on the list.</h2>
-          <p class="launch-intro">Leave your email and we’ll let you know when Now What? is ready to download.</p>
+          <p class="launch-intro">Leave your email and we’ll let you know when Now What? is available on your phone or computer.</p>
           <form class="launch-signup" data-launch-signup data-launch-product="now-what"
                 action="https://canais.tech/api/launch" method="post" novalidate>
+            <div class="launch-name-field">
+              <label for="launch-first-name">First name (optional)</label>
+              <input id="launch-first-name" name="firstName" type="text" autocomplete="given-name"
+                     autocapitalize="words" spellcheck="false" maxlength="80"
+                     aria-describedby="launch-consent launch-status">
+            </div>
             <div class="launch-fields">
               <div class="launch-email-field">
                 <label for="launch-email">Email address</label>
