@@ -29,11 +29,14 @@
       justify-content:center;border-radius:999px;text-decoration:none;font-weight:800;color:#06101f;
       background:linear-gradient(100deg,#eff9ff,#9fefff 35%,#d7bdff 72%,#ffd685)
     }
+    a:focus-visible{outline:3px solid #49dfff;outline-offset:4px}
+    .logo-link{margin:0;padding:0;min-height:0;border-radius:24px;background:none}
+    .logo-link img{display:block}
   </style>
 </head>
 <body>
   <main class="card">
-    <img src="nowwhat-icon.webp" alt="Now What? icon">
+    <a class="logo-link" href="https://nowwhat.it.com/" aria-label="Now What? home"><img src="nowwhat-icon.webp" alt="Now What? icon"></a>
     <h1>You're in the queue.</h1>
     <p>
       Thanks for volunteering to beta test Now What? Your application was received.
