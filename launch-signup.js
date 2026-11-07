@@ -5,6 +5,7 @@
   if (!form) return;
 
   const emailInput = form.querySelector('input[name="email"]');
+  const firstNameInput = form.querySelector('input[name="firstName"]');
   const websiteInput = form.querySelector('input[name="website"]');
   const button = form.querySelector('button[type="submit"]');
   const status = form.querySelector('[data-launch-status]');
@@ -78,7 +79,7 @@
     if (!submitting) showStatus('', '');
   });
 
-  // Keep the current form state and entered email when the page language changes.
+  // Keep the current form state and entries when the page language changes.
   document.addEventListener('launch-language-change', render);
 
   form.addEventListener('submit', async event => {
@@ -101,6 +102,7 @@
 
     submitting = true;
     emailInput.readOnly = true;
+    if (firstNameInput) firstNameInput.readOnly = true;
     button.disabled = true;
     button.setAttribute('aria-busy', 'true');
     showStatus('pending', 'pending');
@@ -131,6 +133,7 @@
         },
         body: JSON.stringify({
           email: emailInput.value,
+          firstName: firstNameInput?.value.trim() || '',
           apps: [product],
           consent: true,
           website: websiteInput.value,
@@ -156,6 +159,7 @@
       window.clearTimeout(timeout);
       submitting = false;
       emailInput.readOnly = false;
+      if (firstNameInput) firstNameInput.readOnly = false;
       button.disabled = false;
       button.removeAttribute('aria-busy');
       render();
