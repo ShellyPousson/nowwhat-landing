@@ -479,6 +479,113 @@
       .button { width: 100%; }
       .footer-row { justify-content: center; text-align: center; }
     }
+
+    .launch-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .launch-nav .mini-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+    .launch-nav .launch-nav-primary {
+      color: #06101f;
+      border-color: transparent;
+      background: linear-gradient(100deg, #eff9ff, #9fefff 35%, #d7bdff 72%, #ffd685);
+    }
+    .launch-nav a:focus-visible {
+      outline: 3px solid var(--cyan);
+      outline-offset: 4px;
+    }
+    .launch-section {
+      padding: 0 0 48px;
+      scroll-margin-top: 24px;
+    }
+    .launch-card .launch-intro {
+      max-width: 650px;
+      margin: 16px 0 24px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+    .launch-signup .launch-fields {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .launch-signup .launch-email-field {
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .launch-signup label {
+      display: block;
+      margin-bottom: 8px;
+      color: #eaf0fb;
+      font-size: .93rem;
+      font-weight: 750;
+    }
+    .launch-signup input[type="email"] {
+      width: 100%;
+      min-height: 52px;
+      padding: 13px 15px;
+      border: 1px solid rgba(255,255,255,.23);
+      border-radius: 14px;
+      color: var(--text);
+      background: rgba(255,255,255,.045);
+      font: inherit;
+    }
+    .launch-signup input[type="email"]::placeholder { color: #92a0b6; }
+    .launch-signup input[type="email"]:focus-visible,
+    .launch-signup button:focus-visible,
+    .launch-signup a:focus-visible {
+      outline: 3px solid var(--cyan);
+      outline-offset: 3px;
+    }
+    .launch-signup input[aria-invalid="true"] { border-color: #ffb8a6; }
+    .launch-signup .launch-submit {
+      flex: 0 0 auto;
+      font: inherit;
+      font-weight: 800;
+    }
+    .launch-signup .launch-submit:disabled {
+      opacity: .65;
+      cursor: wait;
+      transform: none;
+    }
+    .launch-signup .launch-consent,
+    .launch-signup .launch-no-script {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+    .launch-signup .launch-consent a,
+    .launch-signup .launch-no-script a {
+      color: #d5e4ff;
+      text-underline-offset: 3px;
+    }
+    .launch-signup .launch-status {
+      min-height: 1.6em;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.6;
+    }
+    .launch-signup .launch-status[data-state="success"] { color: #a9f3dc; }
+    .launch-signup .launch-status[data-state="error"] { color: #ffb8a6; }
+    @media (max-width: 700px) {
+      .launch-signup .launch-fields { flex-direction: column; align-items: stretch; }
+      .launch-signup .launch-email-field { flex-basis: auto; }
+      .launch-signup .launch-submit { width: 100%; }
+    }
+    @media (max-width: 420px) {
+      .header-row { gap: 10px; }
+      .launch-nav { gap: 8px; }
+      .launch-nav .mini-cta { padding: 10px 11px; font-size: .8rem; }
+    }
   </style>
 </head>
 
@@ -490,10 +597,10 @@
         <span>Now What?</span>
       </a>
 
-      <a class="mini-cta"
-         href="#beta-form">
-        Beta testing
-      </a>
+      <nav class="launch-nav" aria-label="Page navigation">
+        <a class="mini-cta" href="#beta-form">Beta testing</a>
+        <a class="mini-cta launch-nav-primary" href="#launch-list">Get on the list</a>
+      </nav>
     </div>
   </header>
 
@@ -511,6 +618,40 @@
           Show Now What? what you're trying to do and what you're seeing,
           and get one clear next step instead of another wall of instructions.
         </p>
+      </div>
+    </section>
+
+    <section class="launch-section" id="launch-list" aria-labelledby="launch-heading">
+      <div class="wrap">
+        <div class="form-card launch-card">
+          <p class="form-kicker">Launch notifications</p>
+          <h2 id="launch-heading">Get on the list.</h2>
+          <p class="launch-intro">Leave your email and we’ll let you know when Now What? is ready to download.</p>
+          <form class="launch-signup" data-launch-signup data-launch-product="now-what"
+                action="https://canais.tech/api/launch" method="post" novalidate>
+            <div class="launch-fields">
+              <div class="launch-email-field">
+                <label for="launch-email">Email address</label>
+                <input id="launch-email" name="email" type="email" autocomplete="email"
+                       inputmode="email" autocapitalize="none" spellcheck="false"
+                       maxlength="254" placeholder="you@example.com" required
+                       aria-describedby="launch-consent launch-status">
+              </div>
+              <button class="button primary submit-button launch-submit" type="submit" disabled>Get on the list</button>
+            </div>
+            <div hidden aria-hidden="true" inert>
+              <label for="launch-website">Website</label>
+              <input id="launch-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <p class="launch-consent" id="launch-consent">
+              By joining, you agree to receive emails from Canais about Now What?’s launch and availability.
+              <a href="https://canais.tech/privacy">Privacy</a>.
+              To leave the list, email <a href="mailto:hello@canais.tech">hello@canais.tech</a>.
+            </p>
+            <p class="launch-status" id="launch-status" data-launch-status role="status" aria-live="polite" aria-atomic="true"></p>
+            <noscript><p class="launch-no-script">To join, enable JavaScript or email <a href="mailto:hello@canais.tech?subject=Now%20What%3F%20launch%20list">hello@canais.tech</a> and ask to join the Now What? launch list.</p></noscript>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -650,6 +791,8 @@
       <span><a href="/privacy.html">Privacy</a> · <a href="/data-deletion.html">Data deletion</a> · <a href="mailto:support@nowwhat.it.com">support@nowwhat.it.com</a></span>
     </div>
   </footer>
+
+  <script src="launch-signup.js"></script>
 
   <!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"fcc31b135dfd4d749ebddac1da193096"}'></script>
