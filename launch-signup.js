@@ -23,6 +23,7 @@
       pending: 'Adding your email to the list…',
       invalidEmail: 'Enter a valid email address.',
       success: "You're on the list. We'll email you when " + productName + ' is available.',
+      confirmation: 'Check your inbox and confirm your selections. New subscribers receive a welcome email after confirmation. Already confirmed these selections? You are all set. If the email is missing, check spam or contact hello@canais.tech.',
       error: "We couldn't confirm your signup. Please try again, or email hello@canais.tech.",
       timeout: 'The request took too long. Please try again; your email is still here.',
       rateLimited: 'Please wait a little before trying again. Your email is still here.',
@@ -34,6 +35,7 @@
       pending: 'Añadiendo tu correo a la lista…',
       invalidEmail: 'Introduce una dirección de correo válida.',
       success: 'Ya estás en la lista. Te avisaremos por correo cuando ' + productName + ' esté disponible.',
+      confirmation: 'Busca en tu correo el enlace para confirmar tus selecciones. Si es tu primera confirmación, recibirás un correo de bienvenida. Si ya confirmaste estas selecciones, no tienes que hacer nada más. Si no ves el mensaje, revisa spam o escribe a hello@canais.tech.',
       error: 'No hemos podido confirmar tu inscripción. Inténtalo de nuevo o escribe a hello@canais.tech.',
       timeout: 'La solicitud tardó demasiado. Inténtalo de nuevo; tu correo sigue aquí.',
       rateLimited: 'Espera un poco antes de volver a intentarlo. Tu correo sigue aquí.',
@@ -142,7 +144,7 @@
       }
 
       form.reset();
-      showStatus('success', 'success');
+      showStatus(payload.status === 'confirmation_required' ? 'confirmation' : 'success', 'success');
     } catch (error) {
       const key = error.name === 'AbortError'
         ? 'timeout'
