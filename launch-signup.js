@@ -5,6 +5,7 @@
   if (!form) return;
 
   const emailInput = form.querySelector('input[name="email"]');
+  const firstNameInput = form.querySelector('input[name="firstName"]');
   const websiteInput = form.querySelector('input[name="website"]');
   const button = form.querySelector('button[type="submit"]');
   const status = form.querySelector('[data-launch-status]');
@@ -14,7 +15,7 @@
     'english-lantern': 'The English Lantern'
   }[product];
 
-  if (!emailInput || !websiteInput || !button || !status || !productName) return;
+  if (!emailInput || !firstNameInput || !websiteInput || !button || !status || !productName) return;
 
   const messages = {
     en: {
@@ -131,6 +132,7 @@
         },
         body: JSON.stringify({
           email: emailInput.value,
+          firstName: firstNameInput.value.trim(),
           apps: [product],
           consent: true,
           website: websiteInput.value,
