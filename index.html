@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Now What? — Clear next steps when tech gets confusing</title>
+  <title>Step-by-Step Tech Help | Now What?</title>
+  <link rel="canonical" href="https://nowwhat.it.com/">
 
   <meta name="description"
-        content="Now What? turns confusing tech problems into clear, screenshot-guided next steps. Android beta testers wanted.">
+        content="Step-by-step tech help, guided by what you see on screen. Explore Android settings tips and join the Now What? Android beta or launch list.">
   <meta name="theme-color" content="#050b18">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="icon-192.png">
 
-  <meta property="og:title" content="Now What?">
+  <meta property="og:title" content="Step-by-Step Tech Help | Now What?">
   <meta property="og:description"
-        content="Confusion is temporary. Bad instructions are optional.">
+        content="Screenshot-guided tech help, one clear step at a time. Now recruiting Android beta testers.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nowwhat.it.com/">
   <meta property="og:image" content="https://nowwhat.it.com/nowwhat-icon.webp">
@@ -225,7 +226,7 @@
       text-transform: uppercase;
     }
 
-    .beta-card h1 {
+    .beta-card h2 {
       margin: 0;
       font-size: clamp(1.8rem, 4vw, 2.65rem);
       line-height: 1.08;
@@ -592,6 +593,18 @@
       .launch-nav { gap: 8px; }
       .launch-nav .mini-cta { padding: 10px 11px; font-size: .8rem; }
     }
+    .hero-heading { max-width: 800px; margin: 30px auto 0; font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1.15; letter-spacing: -.035em; }
+    .hero-heading + .hero-copy { margin-top: 18px; }
+    .help-section { padding: 54px 0; scroll-margin-top: 24px; }
+    .help-intro { max-width: 760px; margin-bottom: 26px; }
+    .help-intro h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; }
+    .help-intro p, .help-card p { color: var(--muted); }
+    .help-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .help-card { padding: 26px; background: var(--panel); border: 1px solid var(--line); border-radius: 20px; }
+    .help-card h3 { margin: 0; font-size: 1.18rem; line-height: 1.4; }
+    .help-card a, .help-intro a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+    .help-followup { margin: 36px 0 0; }
+    @media (max-width: 760px) { .help-grid { grid-template-columns: 1fr; } .launch-nav { flex-wrap: wrap; } }
   </style>
 </head>
 
@@ -604,6 +617,7 @@
       </a>
 
       <nav class="launch-nav" aria-label="Page navigation">
+        <a class="mini-cta" href="#android-help">Android help</a>
         <a class="mini-cta" href="#beta-form">Beta testing</a>
         <a class="mini-cta launch-nav-primary" href="#launch-list">Get on the list</a>
       </nav>
@@ -621,10 +635,11 @@
                alt="Now What? — Confusion is temporary. Bad instructions are optional.">
         </a>
 
+        <h1 class="hero-heading">Tech help, one clear step at a time.</h1>
         <p class="hero-copy">
-          <strong>Screenshot-guided tech help for the moment you get stuck.</strong>
-          Show Now What? what you're trying to do and what you're seeing,
-          and get one clear next step instead of another wall of instructions.
+          <strong>Stuck in phone settings or an unfamiliar app?</strong>
+          Now What? is being built to turn your goal and a screenshot into a clear next step.
+          Screenshot-guided troubleshooting starts with the screen in front of you.
         </p>
       </div>
     </section>
@@ -668,6 +683,48 @@
       </div>
     </section>
 
+
+    <section class="help-section" id="android-help" aria-labelledby="help-heading">
+      <div class="wrap">
+        <div class="help-intro">
+          <h2 id="help-heading">Help with everyday Android settings</h2>
+          <p>Trying to make text bigger, stop unwanted notifications, or find a downloaded file?
+          Start with these short tips. Menu names can vary by phone and Android version.</p>
+        </div>
+        <div class="help-grid">
+          <article class="help-card">
+            <h3>How do I make text bigger on my Android phone?</h3>
+            <p>Open your phone's <strong>Settings</strong> and search for <strong>Font size</strong>.
+            Open the matching setting and move the slider toward larger text.</p>
+            <p>If only one app stays small, it may use its own text-size controls.</p>
+            <a href="https://support.google.com/accessibility/android/answer/11183305?hl=en">Google's text-size instructions</a>
+          </article>
+          <article class="help-card">
+            <h3>How do I stop unwanted notifications on Android?</h3>
+            <p>Swipe down from the top of the screen. Touch and hold an unwanted notification,
+            then open its <strong>Settings</strong> to choose which alerts that app can send.</p>
+            <p>Check the app name first so you change the right app's alerts.</p>
+            <a href="https://support.google.com/android/answer/9079661?hl=en">Google's notification instructions</a>
+          </article>
+          <article class="help-card">
+            <h3>Where are my downloaded files on Android?</h3>
+            <p>If you downloaded the file in <strong>Chrome</strong>, open Chrome's menu
+            and choose <strong>Downloads</strong>. You can also look in your phone's Files app.</p>
+            <p>Files saved inside another app may need to be opened from that app.</p>
+            <a href="https://support.google.com/chrome/answer/95759?co=GENIE.Platform%3DAndroid&amp;hl=en">Google's download instructions</a>
+          </article>
+        </div>
+        <div class="help-intro help-followup">
+          <h2>What if my screen doesn't match the instructions?</h2>
+          <p>Phone models, software versions, and app updates can put the same setting in different places.
+          That is the problem Now What? is being built around: share what you want to do and the screen
+          where you're stuck, so the guidance can start there.</p>
+          <p>The app is in development. <a href="#beta-form">Apply to test the Android beta</a>
+          or <a href="#launch-list">get an email when Now What? launches</a>.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="beta" id="beta">
       <div class="wrap">
         <div class="beta-card">
@@ -679,7 +736,7 @@
 
           <div>
             <div class="beta-label">Now recruiting</div>
-            <h1>Android beta testers wanted.</h1>
+            <h2>Android beta testers wanted.</h2>
             <p>
               Help test Now What? in the real world.
               Your feedback will help shape the Android release before it goes public.
