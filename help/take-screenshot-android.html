@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to take a screenshot on Android | Now What?</title><meta name="description" content="Capture your Android screen, find the saved screenshot, and prepare a useful image when asking for tech help.">
+<link rel="canonical" href="https://nowwhat.it.com/help/take-screenshot-android.html"><link rel="icon" href="/favicon.png">
+<meta property="og:title" content="How to take a screenshot on Android | Now What?"><meta property="og:description" content="Capture your Android screen, find the saved screenshot, and prepare a useful image when asking for tech help."><meta property="og:url" content="https://nowwhat.it.com/help/take-screenshot-android.html"><meta property="og:type" content="article"><meta property="og:image" content="https://nowwhat.it.com/nowwhat-icon.webp">
+<style>
+    :root {
+      --bg: #020713;
+      --panel: rgba(8, 17, 36, .72);
+      --panel-strong: rgba(5, 12, 27, .93);
+      --text: #f4f7ff;
+      --muted: #aab5c8;
+      --line: rgba(132, 184, 255, .19);
+      --cyan: #49dfff;
+      --blue: #4c8dff;
+      --violet: #a962ff;
+      --pink: #ff67d8;
+      --gold: #ffc05a;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(76,141,255,.16), transparent 26rem),
+        radial-gradient(circle at 82% 72%, rgba(169,98,255,.12), transparent 26rem),
+        radial-gradient(circle at 56% 48%, rgba(255,192,90,.05), transparent 22rem),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(rgba(255,255,255,.24) .6px, transparent .7px);
+      background-size: 22px 22px;
+      opacity: .055;
+      mask-image: linear-gradient(to bottom, black, transparent 72%);
+    }
+
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+    .logo-link { display: block; }
+    .logo-link img { display: block; }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    header {
+      position: relative;
+      z-index: 2;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(2,7,19,.6);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -.025em;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      box-shadow: 0 0 22px rgba(73,223,255,.18);
+    }
+
+    .mini-cta {
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.15);
+      color: #e8eefc;
+      font-size: .92rem;
+      font-weight: 700;
+      background: rgba(255,255,255,.035);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      text-align: center;
+      padding: clamp(58px, 9vw, 104px) 0 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      margin-bottom: 22px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #c7d4e9;
+      background: rgba(255,255,255,.035);
+      font-size: .77rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 16px var(--cyan);
+    }
+
+    .hero-lockup {
+      display: block;
+      width: min(100%, 1100px);
+      margin: 0 auto;
+      filter: drop-shadow(0 20px 65px rgba(15,109,255,.13));
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 30px auto 0;
+      color: var(--muted);
+      font-size: clamp(1.04rem, 2vw, 1.24rem);
+    }
+
+    .hero-copy strong { color: var(--text); }
+
+    .beta {
+      padding: 16px 0 92px;
+    }
+
+    .beta-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 30px;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 31px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(27,58,118,.22), rgba(82,30,112,.12)),
+        var(--panel);
+      box-shadow:
+        0 30px 90px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      backdrop-filter: blur(14px);
+    }
+
+    .beta-card::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(120deg,
+        rgba(73,223,255,.28),
+        rgba(169,98,255,.06),
+        rgba(255,103,216,.16),
+        rgba(255,192,90,.18));
+      filter: blur(18px);
+      opacity: .38;
+    }
+
+    .beta-icon {
+      width: 128px;
+      height: 128px;
+      border-radius: 26px;
+      box-shadow: 0 12px 38px rgba(0,0,0,.35);
+    }
+
+    .beta-label {
+      margin: 0 0 6px;
+      color: var(--cyan);
+      font-size: .77rem;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .beta-card h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.65rem);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+
+    .beta-card p {
+      max-width: 650px;
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .beta-card b { color: white; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      padding: 0 21px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 850;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button.primary {
+      color: #06101f;
+      background: linear-gradient(100deg, #eff9ff, #9fefff 35%, #d7bdff 72%, #ffd685);
+      box-shadow: 0 9px 34px rgba(73,223,255,.14);
+    }
+
+    .button.secondary {
+      color: #edf3ff;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.035);
+    }
+
+    .micro {
+      margin-top: 13px !important;
+      font-size: .86rem !important;
+      opacity: .76;
+    }
+
+
+    .beta-form-section {
+      padding: 0 0 110px;
+    }
+
+    .form-card {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(17,40,82,.28), rgba(64,30,84,.14)),
+        var(--panel-strong);
+      box-shadow: 0 30px 90px rgba(0,0,0,.24);
+    }
+
+    .form-kicker {
+      margin: 0 0 7px;
+      color: var(--cyan);
+      font-size: .77rem;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .form-card h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.06;
+      letter-spacing: -.045em;
+    }
+
+    .form-intro {
+      max-width: 690px;
+      margin: 14px 0 30px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .beta-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label,
+    .check-label {
+      color: #eaf0fb;
+      font-size: .93rem;
+      font-weight: 750;
+    }
+
+    .field .optional {
+      color: #78869c;
+      font-weight: 550;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 14px;
+      outline: none;
+      background: rgba(255,255,255,.045);
+      color: var(--text);
+      font: inherit;
+      padding: 14px 15px;
+      transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .field select option {
+      color: #111827;
+      background: white;
+    }
+
+    .field textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #6f7d92;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(73,223,255,.58);
+      box-shadow: 0 0 0 3px rgba(73,223,255,.10);
+      background: rgba(255,255,255,.06);
+    }
+
+    .checks {
+      grid-column: 1 / -1;
+      display: grid;
+      gap: 12px;
+      margin-top: 2px;
+    }
+
+    .check-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      color: #cbd5e5;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .check-label input {
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      accent-color: var(--cyan);
+      flex: 0 0 auto;
+    }
+
+    .form-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .submit-button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .form-note {
+      margin: 0;
+      color: #7f8ca1;
+      font-size: .82rem;
+      line-height: 1.45;
+      flex: 1 1 320px;
+    }
+
+    .honeypot {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 28px 0 34px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      color: #8996ab;
+      font-size: .88rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #aebbd0;
+    }
+
+    footer a:hover { color: white; }
+
+    @media (max-width: 700px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .brand span { display: none; }
+      .hero { padding-top: 48px; }
+      .beta-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 24px;
+      }
+      .beta-icon {
+        width: 105px;
+        height: 105px;
+        margin: 0 auto;
+      }
+      .actions { justify-content: center; }
+      .beta-form { grid-template-columns: 1fr; }
+      .field.full, .checks, .form-actions { grid-column: 1; }
+      .button { width: 100%; }
+      .footer-row { justify-content: center; text-align: center; }
+    }
+
+    .launch-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .launch-nav .mini-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+    .launch-nav .launch-nav-primary {
+      color: #06101f;
+      border-color: transparent;
+      background: linear-gradient(100deg, #eff9ff, #9fefff 35%, #d7bdff 72%, #ffd685);
+    }
+    .launch-nav a:focus-visible {
+      outline: 3px solid var(--cyan);
+      outline-offset: 4px;
+    }
+    .launch-section {
+      padding: 0 0 48px;
+      scroll-margin-top: 24px;
+    }
+    .launch-card .launch-intro {
+      max-width: 650px;
+      margin: 16px 0 24px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+    .launch-signup .launch-name-field { margin-bottom: 12px; }
+    .launch-signup .launch-fields {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .launch-signup .launch-email-field {
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .launch-signup label {
+      display: block;
+      margin-bottom: 8px;
+      color: #eaf0fb;
+      font-size: .93rem;
+      font-weight: 750;
+    }
+    .launch-signup input[type="email"],
+    .launch-signup input[name="firstName"] {
+      width: 100%;
+      min-height: 52px;
+      padding: 13px 15px;
+      border: 1px solid rgba(255,255,255,.23);
+      border-radius: 14px;
+      color: var(--text);
+      background: rgba(255,255,255,.045);
+      font: inherit;
+    }
+    .launch-signup input[type="email"]::placeholder { color: #92a0b6; }
+    .launch-signup input[type="email"]:focus-visible,
+    .launch-signup input[name="firstName"]:focus-visible,
+    .launch-signup button:focus-visible,
+    .launch-signup a:focus-visible {
+      outline: 3px solid var(--cyan);
+      outline-offset: 3px;
+    }
+    .launch-signup input[aria-invalid="true"] { border-color: #ffb8a6; }
+    .launch-signup .launch-submit {
+      flex: 0 0 auto;
+      font: inherit;
+      font-weight: 800;
+    }
+    .launch-signup .launch-submit:disabled {
+      opacity: .65;
+      cursor: wait;
+      transform: none;
+    }
+    .launch-signup .launch-consent,
+    .launch-signup .launch-no-script {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+    .launch-signup .launch-consent a,
+    .launch-signup .launch-no-script a {
+      color: #d5e4ff;
+      text-underline-offset: 3px;
+    }
+    .launch-signup .launch-status {
+      min-height: 1.6em;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.6;
+    }
+    .launch-signup .launch-status[data-state="success"] { color: #a9f3dc; }
+    .launch-signup .launch-status[data-state="error"] { color: #ffb8a6; }
+    @media (max-width: 700px) {
+      .launch-signup .launch-fields { flex-direction: column; align-items: stretch; }
+      .launch-signup .launch-email-field { flex-basis: auto; }
+      .launch-signup .launch-submit { width: 100%; }
+    }
+    @media (max-width: 420px) {
+      .header-row { gap: 10px; }
+      .launch-nav { gap: 8px; }
+      .launch-nav .mini-cta { padding: 10px 11px; font-size: .8rem; }
+    }
+    .hero-heading { max-width: 800px; margin: 30px auto 0; font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1.15; letter-spacing: -.035em; }
+    .hero-heading + .hero-copy { margin-top: 18px; }
+    .help-section { padding: 54px 0; scroll-margin-top: 24px; }
+    .help-intro { max-width: 760px; margin-bottom: 26px; }
+    .help-intro h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; }
+    .help-intro p, .help-card p { color: var(--muted); }
+    .help-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .help-card { padding: 26px; background: var(--panel); border: 1px solid var(--line); border-radius: 20px; }
+    .help-card h3 { margin: 0; font-size: 1.18rem; line-height: 1.4; }
+    .help-card a, .help-intro a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+    .help-followup { margin: 36px 0 0; }
+    @media (max-width: 760px) { .help-grid { grid-template-columns: 1fr; } .launch-nav { flex-wrap: wrap; } }
+  
+.guide{max-width:800px;margin:auto;padding:48px 24px 64px}.guide h1{font-size:clamp(2rem,6vw,3.1rem);line-height:1.12;letter-spacing:-.035em}.guide h2{margin-top:36px;font-size:1.45rem;line-height:1.3}.guide p,.guide li{color:var(--muted);font-size:1.08rem}.guide li{padding-left:8px;margin:14px 0}.guide strong{color:var(--text)}.guide a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}.guide .lead{font-size:1.2rem}.guide .note{border-left:3px solid var(--cyan);padding:8px 20px;background:var(--panel)}.guide .related{padding:20px 0}.guide .date{font-size:.9rem}a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.skip-link{position:absolute;top:-100px;left:12px}.skip-link:focus{top:12px;z-index:5;background:var(--bg);padding:12px}header .header-row{flex-wrap:wrap;gap:12px}
+</style></head><body>
+<a class="skip-link" href="#guide">Skip to guide</a>
+<header><div class="wrap header-row"><a class="brand" href="/" aria-label="Now What? home"><img src="/nowwhat-icon.webp" alt=""><span>Now What?</span></a><nav aria-label="Main navigation"><a class="mini-cta" href="/#android-help">Android help</a></nav></div></header>
+<main class="guide" id="guide"><p><a href="/#android-help">← All Android help</a></p><h1>How to take a screenshot on Android</h1>
+<p class="date">By Now What? · Updated November 10, 2026</p>
+<p class="lead">A screenshot saves a picture of what your phone is displaying. Start on the exact screen you want help with.</p>
+<h2>Capture the screen</h2><ol><li>Press <strong>Power and Volume down together</strong>.</li><li>Look for the screenshot preview or capture confirmation.</li><li>If that combination does not work, some phones offer Screenshot in the power menu. Otherwise, check your manufacturer's instructions for your model.</li></ol>
+<h2>Find the saved picture</h2><p>In Google Photos, look under <strong>Collections → On this device → Screenshots</strong>. Other gallery apps may use a Screenshots album instead. Open the image to confirm it captured the intended screen.</p>
+<h2>Need a longer screenshot?</h2><p>On supported Android 12 or later screens, <strong>Capture more</strong> may appear after taking a screenshot. Select the portion you need. Not every screen supports this option.</p>
+<h2>Make your help request useful</h2><p>Use a fresh screenshot and say what you want to accomplish. Include the error message or control you cannot find. If you also share an older screenshot, label it “before” so it cannot be mistaken for your current screen.</p><p>Before sharing, check the picture for passwords, verification codes, or personal information you do not want included. Keep enough surrounding context to show where you are.</p>
+<p class="date">Reference: <a href="https://support.google.com/android/answer/9075928?hl=en">Google Android Help: screenshots</a>. Availability and menu names vary by phone.</p>
+<aside class="note"><h2>Still stuck on your screen?</h2><p>Now What? is being built around your goal and a screenshot, with one clear next step at a time. The app is in development.</p><p><a href="/#beta-form">Apply to test the Android beta</a> or <a href="/#launch-list">join the launch list</a>.</p></aside>
+<nav class="related" aria-label="Related guides"><h2>More Android help</h2><ul><li><a href="/help/make-text-bigger-android.html">How to make text bigger on Android</a></li><li><a href="/help/stop-unwanted-notifications-android.html">How to stop unwanted notifications on Android</a></li></ul></nav>
+</main><footer><div class="wrap footer-row"><a href="https://canais.tech/">© 2026 Now What? · A Canais LLC product.</a><span><a href="/privacy.html">Privacy</a> · <a href="/data-deletion.html">Data deletion</a></span></div></footer></body></html>
